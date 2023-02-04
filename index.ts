@@ -1,5 +1,6 @@
 import { Request, Response, Express } from 'express'
 import express from 'express'
+import { connect } from './db/connect'
 const app = express()
 const PORT = 3001
 
@@ -17,7 +18,8 @@ const main = async (app: Express) => {
   })
 } 
 
-app.listen(PORT, () => {
+app.listen(PORT, async () => {
   console.log(`Listening on port ${PORT}`)
+  await connect()
   main(app)
 })
