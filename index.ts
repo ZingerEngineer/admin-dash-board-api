@@ -7,8 +7,7 @@ const app = express()
 const PORT = 3001
 
 const main = async (app: Express) => {
-  app.use(express.static('public'))
-  app.use(bodyParser.json)
+  app.use(bodyParser.json())
   app.use('/api',userRouter)
 }
 app.listen(PORT, async () => {
