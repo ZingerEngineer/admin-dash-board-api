@@ -1,11 +1,11 @@
-import mongoose, { Schema } from "mongoose"
+import mongoose, { Schema } from 'mongoose'
 
 const userSchema = new Schema({
-  name:{
+  name: {
     type: String,
-    required: true
+    default: `guest`
   },
-  role:{
+  role: {
     type: String,
     required: true,
     enum: ['admin', 'user'],
@@ -16,10 +16,14 @@ const userSchema = new Schema({
     required: true,
     unique: true
   },
-  password:{
-    type:String,
+  password: {
+    type: String,
     required: true
+  },
+  token: {
+    type: String,
+    default: ''
   }
 })
 
-export const user = mongoose.model("User" , userSchema)
+export const User = mongoose.model('User', userSchema)
